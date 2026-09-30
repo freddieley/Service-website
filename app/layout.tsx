@@ -1,5 +1,19 @@
 import type { Metadata } from "next";
+import { DM_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-manrope",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-dm-mono",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bluo.co.uk"),
@@ -44,7 +58,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GB">
-      <body>{children}</body>
+      <body className={`${manrope.variable} ${dmMono.variable}`}>{children}</body>
     </html>
   );
 }
