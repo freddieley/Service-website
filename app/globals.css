@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
-
 :root {
   --ink: #11110f;
   --muted: #686861;
@@ -20,7 +18,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Manrope", Arial, sans-serif;
+  font-family: var(--font-manrope), Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 button, input, textarea { font: inherit; }
@@ -121,7 +119,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-copy, .hero-price-card, .hero-bottom { position: relative; z-index: 2; }
 .eyebrow, .section-label, .mini-tag, .price-kicker {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-dm-mono), monospace;
   font-size: 10px;
   letter-spacing: .13em;
   text-transform: uppercase;
@@ -271,10 +269,10 @@ h2 span { color: #999990; }
 .concept-blue .browser-screen { background: linear-gradient(135deg,#0f1116 0%,#14243d 100%); }
 .mock-nav { display: flex; justify-content: space-between; font-size: 7px; font-family: "DM Mono", monospace; letter-spacing: .08em; }
 .mock-content { position: absolute; left: 18px; right: 18px; top: 82px; }
-.mock-content p { margin: 0 0 12px; font: 8px "DM Mono", monospace; opacity: .55; letter-spacing: .1em; }
+.mock-content p { margin: 0 0 12px; font: 8px var(--font-dm-mono), monospace; opacity: .55; letter-spacing: .1em; }
 .mock-content h3 { max-width: 280px; margin: 0; font-size: 29px; line-height: .92; letter-spacing: -.05em; }
 .mock-arrow { position: absolute; right: 0; top: 0; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(250,249,244,.25); border-radius: 50%; }
-.mock-footer { position: absolute; left: 18px; right: 18px; bottom: 15px; display: flex; justify-content: space-between; opacity: .45; font: 7px "DM Mono", monospace; }
+.mock-footer { position: absolute; left: 18px; right: 18px; bottom: 15px; display: flex; justify-content: space-between; opacity: .45; font: 7px var(--font-dm-mono), monospace; }
 .concept-copy { padding: 22px 2px 0; }
 .concept-copy h3 { margin: 9px 0; font-size: 21px; letter-spacing: -.04em; }
 .concept-copy p { color: var(--muted); line-height: 1.6; font-size: 13px; }
@@ -299,7 +297,7 @@ h2 span { color: #999990; }
 .offer-copy .large-copy { max-width: 650px; color: rgba(250,249,244,.66); margin-top: 35px; }
 .offer-card { padding: 34px; border: 1px solid var(--dark-line); background: rgba(250,249,244,.045); }
 .offer-card-head { display: flex; justify-content: space-between; align-items: end; padding-bottom: 18px; border-bottom: 1px solid var(--dark-line); }
-.offer-card-head span { color: var(--acid); font: 10px "DM Mono", monospace; letter-spacing: .12em; }
+.offer-card-head span { color: var(--acid); font: 10px var(--font-dm-mono), monospace; letter-spacing: .12em; }
 .offer-card-head strong { font-size: 48px; letter-spacing: -.07em; }
 .offer-card-sub { color: rgba(250,249,244,.48); font-size: 11px; }
 .offer-card ul { list-style: none; padding: 15px 0 20px; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
@@ -332,10 +330,10 @@ h2 span { color: #999990; }
 
 .contact { background: var(--paper-2); display: grid; grid-template-columns: .9fr 1.1fr; gap: 10vw; }
 .contact-heading h2 { margin: 45px 0 28px; }
-.direct-email { display: inline-flex; gap: 14px; align-items: center; margin-top: 30px; font: 12px "DM Mono", monospace; border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
+.direct-email { display: inline-flex; gap: 14px; align-items: center; margin-top: 30px; font: 12px var(--font-dm-mono), monospace; border-bottom: 1px solid var(--ink); padding-bottom: 6px; }
 .scope-form { display: grid; gap: 22px; align-self: end; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.scope-form label { display: grid; gap: 9px; color: var(--muted); font: 9px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
+.scope-form label { display: grid; gap: 9px; color: var(--muted); font: 9px var(--font-dm-mono), monospace; text-transform: uppercase; letter-spacing: .1em; }
 .scope-form input, .scope-form textarea {
   width: 100%;
   border: 1px solid var(--line);
@@ -344,7 +342,7 @@ h2 span { color: #999990; }
   color: var(--ink);
   padding: 15px;
   outline: none;
-  font: 13px "Manrope", sans-serif;
+  font: 13px var(--font-manrope), sans-serif;
   text-transform: none;
   letter-spacing: 0;
   transition: border-color .2s ease, background .2s ease;
