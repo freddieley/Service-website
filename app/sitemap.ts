@@ -1,12 +1,2 @@
 import type { MetadataRoute } from "next";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://bluo.co.uk/",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
-}
+export default function sitemap(): MetadataRoute.Sitemap { return ["/","/portfolio","/privacy","/terms"].map((path,index)=>({url:"https://bluo.co.uk"+path,lastModified:new Date(),changeFrequency:"monthly",priority:index===0?1:0.6})); }
