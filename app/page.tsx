@@ -319,7 +319,7 @@ export default function Home() {
           </p>
           <a
             className="button button-outline"
-            href="https://github.com/freddieley/Website-portfolio"
+            href="https://bluo.co.uk/portfolio"
             target="_blank"
             rel="noreferrer"
           >
@@ -440,9 +440,9 @@ export default function Home() {
           <span>Web Design & Development</span>
         </div>
         <div className="footer-links">
-          <a href="mailto:freddie.ley@icloud.com">Email</a>
+          <a href="mailto:freddie.ley@icloud.com">Email</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a>
           <button onClick={() => scrollTo("work")}>Work</button>
-          <a href="https://github.com/freddieley/Website-portfolio" target="_blank" rel="noreferrer">Portfolio</a>
+          <a href="https://bluo.co.uk/portfolio" target="_blank" rel="noreferrer">Portfolio</a>
         </div>
         <div className="footer-bottom">
           <span>© 2026 Bluo / Freddie Ley</span>
