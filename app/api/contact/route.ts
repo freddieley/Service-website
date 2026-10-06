@@ -50,7 +50,6 @@ export async function POST(request: Request) {
         brief,
       ].join("\n"),
       tags: [{ name: "source", value: "website-contact-form" }],
-      idempotencyKey: `contact-${crypto.randomUUID()}`,
     });
 
     if (result.error) {
