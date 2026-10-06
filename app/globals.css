@@ -350,8 +350,11 @@ h2 span { color: #999990; }
 .scope-form textarea { resize: vertical; min-height: 150px; }
 .scope-form input:focus, .scope-form textarea:focus { border-color: var(--ink); background: var(--white); }
 .scope-form .button { width: fit-content; }
-.form-note, .form-success { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.form-note, .form-success, .form-error { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
 .form-success { color: #3e5b00; }
+.form-error { color: #8a2e1f; }
+.form-error a { text-decoration: underline; text-underline-offset: 3px; }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
 
 .site-footer { padding: 55px 7vw 28px; background: var(--ink); color: var(--white); }
 .footer-brand { display: flex; align-items: center; gap: 12px; }
