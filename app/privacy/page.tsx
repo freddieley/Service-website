@@ -17,8 +17,9 @@ export default function Privacy() {
       <h2>What this website collects</h2>
       <p>
         The enquiry form asks for your name, business name, email address, current website
-        (optional) and project brief. The form currently prepares an email in your own email
-        client rather than sending the information to a Bluo database.
+        (optional) and project brief. When you submit the form, these details are sent securely
+        to Bluo's email inbox through Resend so I can review and respond to your enquiry. They
+        are not stored in a Bluo customer database.
       </p>
 
       <h2>Email</h2>
