@@ -75,30 +75,45 @@ function ScopeForm() {
     event.preventDefault();
     setStatus("sending");
     setErrorMessage("");
-    const form = new FormData(event.currentTarget);
+
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const name = String(form.get("name") ?? "").trim();
     const business = String(form.get("business") ?? "").trim();
     const website = String(form.get("website") ?? "").trim();
     const emailAddress = String(form.get("email") ?? "").trim();
     const brief = String(form.get("brief") ?? "").trim();
+    const honeypot = String(form.get("website_url") ?? "").trim();
 
-    const subject = encodeURIComponent(
-      `Website enquiry — ${business || "new project"}`,
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Business: ${business}`,
-        `Email: ${emailAddress}`,
-        `Current website: ${website || "None"}`,
-        "",
-        "Project brief:",
-        brief,
-      ].join("\n"),
-    );
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          business,
+          website,
+          email: emailAddress,
+          brief,
+          website_url: honeypot,
+        }),
+      });
 
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+      const result = (await response.json().catch(() => ({}))) as { error?: string };
+      if (!response.ok) {
+        throw new Error(result.error || "Something went wrong. Please email me directly.");
+      }
+
+      setStatus("success");
+      formElement.reset();
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please email me directly.",
+      );
+    }
   }
 
   return (
@@ -169,7 +184,6 @@ function ScopeForm() {
     </form>
   );
 }
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
