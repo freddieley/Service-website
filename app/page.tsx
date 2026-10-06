@@ -68,10 +68,13 @@ function scrollTo(id: string) {
 }
 
 function ScopeForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
     const form = new FormData(event.currentTarget);
     const name = String(form.get("name") ?? "").trim();
     const business = String(form.get("business") ?? "").trim();
@@ -134,8 +137,16 @@ function ScopeForm() {
         />
       </label>
 
-      <button className="button button-dark" type="submit">
-        Email my enquiry <span>↗</span>
+      <input
+        name="website_url"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="form-honeypot"
+      />
+
+      <button className="button button-dark" type="submit" disabled={status === "sending"}>
+        {status === "sending" ? "Sending enquiry…" : "Send my enquiry"} <span>↗</span>
       </button>
 
       <p className="form-note">
@@ -143,10 +154,16 @@ function ScopeForm() {
         and the next step.
       </p>
 
-      {submitted ? (
-        <p className="form-success">
-          Your email client should now be open with the enquiry prepared. If it
-          didn’t open, email {email} directly.
+      {status === "success" ? (
+        <p className="form-success" role="status">
+          Enquiry sent. I’ll review it and reply by email as soon as I can.
+        </p>
+      ) : null}
+
+      {status === "error" ? (
+        <p className="form-error" role="alert">
+          {errorMessage}{" "}
+          <a href={`mailto:${email}`}>Email me directly ↗</a>
         </p>
       ) : null}
     </form>
